@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+        {% if task|length < 1 %}
+        <h3>There are no task. add one below</h3>
+        {% else %}
+<table class="table">
+    <thead>
+      <tr>
+       
+        <th scope="col">Task</th>
+        <th scope="col">Time Created</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for task in task%}
+      <tr>
+      
+        <td>{{task.content}}</td>
+        <td>{{task.date_created}}</td>
+        <td>
+            <a href="/delete/{{task.id}}">Delete</a>
+            <a href="/update/{{task.id}}">Update</a>
+        </td>
+      </tr>
+      {% endfor %}
+  </table>
+
+    {% endif %}
+
+    <form action="/" method="POST">
+        <input class="form-control" type="text" name="content" id="content"  aria-label="readonly input example" >
+        <br>
+        <button type="submit" class="btn btn-primary">ADD TASK</button>
+    </form>
+
+      </div> 
+    </div>
+  </div>
+
+{% endblock content%}

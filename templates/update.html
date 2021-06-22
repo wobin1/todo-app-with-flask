@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="content">
+    <form action="/update/{{task.id}}" method="POST">
+        <input class="form-control" type="text" name="content" id="content" value="{{task.content}}"  aria-label="readonly input example" >
+        <br>
+        <button type="submit" class="btn btn-primary">UPDATE</button>
+    </form>
+</div>
+
+   
+
+      </div> 
+    </div>
+  </div>
+
+{% endblock content%}
